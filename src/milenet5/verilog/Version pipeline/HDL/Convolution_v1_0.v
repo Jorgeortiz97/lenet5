@@ -506,7 +506,7 @@ begin
                             stage   <= FETCHING;
 						
 						// FASE DE LECTURA DE MEMORIA
-                        end else if (stage == FETCHING)
+                        end else if (stage == FETCHING) begin
                             stage   <= EXECUTING;
                             
                             // Adelantamiento de lecturas (1 posición de memoria)
@@ -525,7 +525,7 @@ begin
                                 l3_addr     <= k2 + 1 + x * DIM + LAYER3_SZ * (k1 + y * DIM + LAYER3_SZ * l2);
                             
                         // FASE DE EJECUCIÓN
-                        else if (stage == EXECUTING) begin
+                        end else if (stage == EXECUTING) begin
 
                             // Productos (fases de convolución y producto escalar)
                             if (step == 0 || step == 2 || step == 4 || step == 5) begin
